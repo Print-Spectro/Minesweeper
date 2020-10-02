@@ -7,6 +7,8 @@ Created on Thu Oct  1 10:15:45 2020
 from random import randint
 
 from os import system
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from sys import exit
 
 printgrid = lambda grid: [print(i) for i in grid]
@@ -101,7 +103,8 @@ class Minefield:
                                  
                                  "a"
                     a = len(pos)
-                         
+
+                       
 
         elif self.gameview[y][x] in " 123456789":
             print("Tile Already Cleared")
@@ -118,7 +121,7 @@ class Minefield:
         elif not self.gameview[y][x] in "OF":
             print("Can't flag; tile cleared")
         
-                    
+notice = "Well done genius; you have tried to make un unsolvable or impossible minefield"                    
 def matrix(y,x):
     """takes a 2 dimenstional position coordinate and generates a 3x3 matrix 
     around that point
@@ -131,6 +134,15 @@ def rungame():
     clear()
     minefield = Minefield(int(input("Board size ")))
     number = int(input("Number of Mines "))
+    if number >= minefield.counter:
+        
+            a = open("Idiot.txt", "a")
+            a.write("\n" + notice)
+            a.close()
+            system("notepad idiot.txt")
+            if input("Press Enter to Play Again, X to exit ").upper() == "X":
+                exit()
+            rungame()
     printgame(minefield.gameview)
     x = int(input("X ")) - 1
     y = int(input("Y ")) - 1
