@@ -7,6 +7,7 @@ Created on Thu Oct  1 10:15:45 2020
 from random import randint
 
 from os import system
+from sys import exit
 
 printgrid = lambda grid: [print(i) for i in grid]
 
@@ -141,7 +142,7 @@ def rungame():
     if minefield.counter == 0:
         print("All Mines Located ")
         if input("Press Enter to Play Again, X to exit ").upper() == "X":
-            return
+            exit()
             
         rungame()
     
@@ -154,7 +155,7 @@ def rungame():
                 printgame(minefield.gameview)
                 print("BOOM")
                 if input("Press Enter to Play Again, X to exit ").upper() == "X":
-                    return
+                    exit()
                 rungame()
             elif minefield.counter == 0:
                 clear()
@@ -162,7 +163,7 @@ def rungame():
                 print("All Mines Located ")
                 
                 if input("Press Enter to Play Again, X to exit ").upper() == "X":                    
-                    return
+                    exit()
                 rungame()
         clear()
         printgame(minefield.gameview)
