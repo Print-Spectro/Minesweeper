@@ -121,7 +121,7 @@ class Minefield:
         elif not self.gameview[y][x] in "OF":
             print("Can't flag; tile cleared")
         
-notice = "Well done genius; you have tried to make un unsolvable or impossible minefield"                    
+notice = "Well done genius; you have tried to make an un unsolvable or impossible minefield"                    
 def matrix(y,x):
     """takes a 2 dimenstional position coordinate and generates a 3x3 matrix 
     around that point
